@@ -25,3 +25,19 @@ For the fully-flexible learners:
 - Call `sample_ts_standalone()` on the specific baseline hypothesis space (locatated in `baselines.py`), the vector of alpha values for the sole grammar in this hypothesis space, the specific dataset (located in `data.py`), the specific number of iterations, and the specific number of chains for parallel tempering. The final argument is a descriptor of the run. The reported simulations used 50,000 iterations and 10 chains of parallel tempering.
 - For example, the command for one run of the biased English fully-flexible learner on the 50-sentence Brown dataset would be `sample_ts_standalone(v12hs(), v12hs().alphas[0], data_brown_final, 50000, 10, "Eng-fullyflexible-biased")`
 
+## Instructions for analyzing CHILDES data into strings of `np` and `v`
+
+Running the following commands in the root directory of this repository will produce (for English, French and Japanese respectively) 
+the proportions of string types reported in Table 2:
+```
+cat datasets/english/brown.txt | python3 tag_by_contexts.py --lang eng --childes
+cat datasets/french/lyon.txt | python3 tag_by_contexts.py --lang fre --childes
+cat datasets/japanese/miipro.txt | python3 tag_by_contexts.py --lang jpn --childes
+```
+
+For the case-marking data in Table 3 from Japanese, add the `--cm` flag:
+```
+cat datasets/japanese/miipro.txt | python3 tag_by_contexts.py --lang jpn --childes --cm
+```
+The proportions reported in Table 3 are the result of renormalizing after excluding strings that occur less than ten times.
+
