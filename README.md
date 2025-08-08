@@ -1,10 +1,8 @@
 # noisy-grammar-learner
 
-This repository contains data and code for (authors blinded) "Modeling Regularization in Language Acquisition as Noise-Tolerant Grammar Selection", under review. It contains the following:
+This repository contains data and code for (authors blinded) "Modeling Regularization in Language Acquisition as Noise-Tolerant Grammar Selection", under review. It contains code for running simulations, written in Python3, as well as:
 
-- datasets: corpora of child-directed speech used as data for the model, with the CHILDES morphological ('mor') tier extracted, and code for tagging np's and v's within these corpora based on recognizable functional elements. This code was written in Python3.
-
-- simulations: code for running model and baseline simulations. This code was written in Python3.
+- datasets: corpora of child-directed speech used as data for the model, with the CHILDES morphological ('mor') tier extracted.
 
 - results: output and analysis scripts for reported model and baseline simulations. This code was written in Python3 and R.
 
