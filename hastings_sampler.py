@@ -7,8 +7,8 @@ from collections import OrderedDict, Counter
 from functools import reduce
 from cky import *
 from likelihood import *
-#from baselines import *
-#from data import *
+from baselines import *
+from data import *
 
 ## Function that randomly initializes thetas for d-structure rules given alpha
 def initialize_rules(hs, alpha):
