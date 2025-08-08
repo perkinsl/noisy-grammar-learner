@@ -1,0 +1,12 @@
+﻿model,run,language,SOV_12,SOV_21
+Bayesian,1,Japanese,0.5432,0.4568
+Bayesian,2,Japanese,0.54,0.46
+Bayesian,3,Japanese,0.5328,0.4672
+Bayesian,4,Japanese,0.544,0.456
+Bayesian,5,Japanese,0.544,0.456
+Bayesian,6,Japanese,0.5736,0.4264
+Bayesian,7,Japanese,0.544,0.456
+Bayesian,8,Japanese,0.528,0.472
+Bayesian,9,Japanese,0.5504,0.4496
+Bayesian,10,Japanese,0.5496,0.4504
+Data Coverage,1,Japanese,0.44,0.14
