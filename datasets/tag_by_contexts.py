@@ -478,41 +478,6 @@ def jpn_try_split_suffixes(plain_w, pos, gloss):
 
 langinfodict[JPN].try_split_suffixes = jpn_try_split_suffixes
 
-######################################################################
-
-# ######################################################################
-# ### Chinese
-# 
-# # https://journals.sagepub.com/doi/10.1177/0142723719845175
-# 
-# CHI = "chi"
-# langinfodict[CHI] = LangInfo()
-# 
-# # 'zhe4=this': 5335 occurrences as 'det', 4411 as 'pro:dem'
-# 
-# langinfodict[CHI].initial_tags = defaultdict(lambda: None, {"pro:per": "prn", 
-#                                                             #"pro:dem": "prn", # including this line creates a clash of tags for 'zhe4=this'
-#                                                             "det": "det", 
-#                                                             "cl": "cls", 
-#                                                             "v:aux": "aux", 
-#                                                             "asp": "asp", 
-#                                                            })
-# 
-# def chi_add_tags_from_cues(x):
-#     for i in range(len(x)):
-#         if x[i].guess_tag is None:
-#             if i > 0 and x[i-1].guess_tag == "cls":
-#                 x[i].guess_tag = "noun"
-#             elif i > 0 and x[i-1].guess_tag == "det":
-#                 x[i].guess_tag = "noun"
-#             elif i > 0 and x[i-1].guess_tag == "aux":
-#                 x[i].guess_tag = "verb"
-#             elif i < len(x)-1 and x[i+1].guess_tag == "asp":
-#                 x[i].guess_tag = "verb"
-# 
-# langinfodict[CHI].add_tags_from_cues = chi_add_tags_from_cues
-# 
-# ######################################################################
 
 ######################################################################
 ### For reading CHILDES files

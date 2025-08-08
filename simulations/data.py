@@ -3,35 +3,6 @@ import re
 from collections import Counter
 import random
 
-# tiny tester treeset
-tester_trees =  [trees.make_tree("S", 
-                    trees.make_tree("NP","np"), 
-                    trees.make_tree("VP",
-                        trees.make_tree("V","v"), 
-                        trees.make_tree("NP","np")
-                    )
-                ),
-                trees.make_tree("S", 
-                    trees.make_tree("NP","np"), 
-                    trees.make_tree("VP",
-                        trees.make_tree("NP","np"), 
-                        trees.make_tree("V","v")
-                    )
-                ),
-                trees.make_tree("S", 
-                    trees.make_tree("NP","np"), 
-                    trees.make_tree("VP",
-                        trees.make_tree("V","v")
-                    )
-                ),
-                trees.make_tree("S", 
-                    trees.make_tree("VP",
-                        trees.make_tree("V","v"), 
-                        trees.make_tree("NP","np")
-                    ),
-                    trees.make_tree("NP","np") 
-                )] 
-
 
 ##################################################################################################
 ## ENGLISH
