@@ -1,6 +1,6 @@
 # Key to numbering of simulation output files
 
-These files contain outputs of 10 runs of each simulation. For example, Eng1.1-1.10 are 10 runs of the simulation described as Eng1 below. For space, we did not save files containing sampled trees, but instead saved the processed estimates of theta values created by running `analyze_thetas()` within `analysis.py`.
+These files contain outputs of 10 runs of each simulation. For example, Eng1.1-1.10 are 10 runs of the simulation described as Eng1 below. For space, we did not save files containing sampled trees, but instead saved the processed estimates of theta values created by running `analyze_thetas()` within `postprocessing.py`.
 
 ----------------------------------------------------------------
 
