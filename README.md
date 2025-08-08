@@ -8,8 +8,7 @@ This repository contains data and code for (authors blinded) "Modeling Regulariz
 
 Code was written by (name) and (name). We thank (names) for their assistance with testing these scripts.
 
-----------------------------------------------------------------
-INSTRUCTIONS FOR PERFORMING SIMULATIONS
+## Instructions for performing simulations
 
 Note: runtime for these scripts is quite long over the 50-sentence datasets (several hours to several days depending on processor).
 
