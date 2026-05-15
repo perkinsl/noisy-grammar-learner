@@ -22,7 +22,8 @@ def sample_alpha(dirichlets, hs, ts):
     likelihoods = [total_ll(dirichlets, hs, ts, alpha) for alpha in hs.alphas]
 
     ## Compute log posterior probability of each value of alpha given ts
-    numerators = sorted([x+y for x,y in zip(np.log(hs.priors), likelihoods)], reverse=True)
+    numerators_unsorted = [x+y for x,y in zip(np.log(hs.priors), likelihoods)]
+    numerators_sorted = sorted(numerators_unsorted, reverse=True)
 
     ## Trick for computing the log of a summation without stack overflow:
     ## You can subtract the largest log value from all other values without exponentiating it
@@ -33,18 +34,20 @@ def sample_alpha(dirichlets, hs, ts):
 
     ## If largest log probability in list is -inf, result of subtraction for rest of list is also -inf
     ## Otherwise, perform subtraction for the result of the list, and exponentiate result
-    if numerators[0] == float('-inf'):
-        sub = numerators
+    ## So sub here is a vector [log(a_i) - log(a_0) for i in [0..N]]
+    if numerators_sorted[0] == float('-inf'):
+        sub = numerators_sorted
     else:
-        sub = map(lambda x: x-numerators[0], numerators)
+        sub = map(lambda x: x-numerators_sorted[0], numerators_sorted)
     exp = map(lambda x: math.exp(x), sub)
 
     ## Add to 1, re-log, and add to first log probability in list
     ## np.log1p() calculates log(1 + x) for each element x of input array
-    denominators = numerators[0] + np.log1p(sum(itertools.islice(exp,1,None)))
+    ## So denominator is the thing log(sum of a_i from i=0 to N) described above
+    denominator = numerators_sorted[0] + np.log1p(sum(itertools.islice(exp,1,None)))
 
     # Calculate log posterior and re-exponentiate
-    posteriors = list(map(lambda x: math.exp(x), [n-denominators for n in numerators]))
+    posteriors = list(map(lambda x: math.exp(x), [n-denominator for n in numerators_unsorted]))
     #print("current posteriors: ", posteriors)
 
     ## Flip coin weighted by posteriors over alpha in order to sample a new alpha
