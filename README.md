@@ -1,6 +1,6 @@
 # noisy-grammar-learner
 
-This repository contains data and code for Perkins & Hunter, "Modeling Regularization in Language Acquisition as Noise-Tolerant Grammar Selection", to appear in _Cognition_. It contains code for running simulations, written in Python3, as well as:
+This repository contains data and code for Perkins & Hunter (2026), "Modeling Regularization in Language Acquisition as Noise-Tolerant Grammar Selection", _Cognition_. It contains code for running simulations, written in Python3, as well as:
 
 - datasets: corpora of child-directed speech used as data for the model, with the CHILDES morphological ('mor') tier extracted.
 
