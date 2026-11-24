@@ -67,13 +67,13 @@ def accept(dirichlets, hs, p_curr, t, t_prime, ts_i, alpha, theta_s, temp):
         if p == 0:
             logp = float('-inf')
         else:
-            logp = temp*np.log(p)
+            logp = np.log(p)
 
         p_prime = prob_t(t_prime, theta_s) ## P(t_prime|w[i], theta_s)
         if p_prime == 0:
             logpprime = float('-inf')
         else:
-            logpprime = temp*np.log(p_prime)
+            logpprime = np.log(p_prime)
 
         ts_prime = ts_i + [t_prime]
 
