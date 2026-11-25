@@ -220,12 +220,18 @@ def calculate_likelihood(dirichlets, hs, nonterm, alpha, rewrite_counts, parent_
     # 3-tuple input argument for calculate_nterm
     ngroup = [ (tup[1], n, alpha) for tup in nplusgroup ]
 
+    # Multinomial coefficients: product over (n_i choose n_i+) for every possible rewrite type n_i of nonterminal n
+    def calculate_multinomials(npluses, nplus, ns, alpha):
+        return math.log(math.prod([math.comb(ni, niplus) for (ni, niplus) in zip(ns, npluses)]))
+        
+    multinomials = itertools.starmap(calculate_multinomials, nplusgroup)
 
     nterm = itertools.starmap(calculate_nterm, ngroup)
     nplusterm = itertools.starmap(calculate_nplusterm, nplusgroup)
     nminterm = itertools.starmap(calculate_nminterm, nplusgroup)
-    product = sorted(map(add, nterm, map(add, nplusterm, nminterm)), reverse=True) ## Sort results from large to small
 
+    # Result of each term inside summation
+    product = sorted(map(add, multinomials, (map(add, nterm, map(add, nplusterm, nminterm)))), reverse=True) ## Sort results from large to small
 
     ## Calculate summation over these probabilities
     ## Trick for computing the log of a summation without stack overflow:
