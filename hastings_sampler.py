@@ -147,6 +147,7 @@ def tree_sampler(dirichlets, hs, alpha, data, sampled_ts, probs, temp, iteration
                 while any(((element > 1) or (element < 0)) for element in new_probs):
                     new_probs = np.random.multivariate_normal(mean, cov)
                 new_probs = new_probs.tolist()
+                new_probs = [v/(sum(new_probs)) for v in new_probs]
             new_probs_complete = new_probs_complete + new_probs
             #print(new_probs_complete)
 
